@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "fontawesome": "^5.6.3",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "vue": "^3.4.29"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
@@ -26,7 +27,7 @@
     "tailwindcss": "^3.4.10",
     "typescript": "~5.4.0",
     "vite": "^5.3.1",
-    "vue": "^3.4.38",
-    "vue-tsc": "^2.1.2"
+    "vue": "^3.4.29",
+    "vue-tsc": "^2.0.21"
   }
 }
