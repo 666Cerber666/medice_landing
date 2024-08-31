@@ -7,15 +7,21 @@ import ContentPage3 from "./PageContents/ContentPage3.vue"
 import ContentPage4 from "./PageContents/ContentPage4.vue"
 
 const currentPage = ref(0) // current page state
+
+function updateCurrentPage(page: number) {
+  currentPage.value = page
+}
 </script>
 
 <template>
-  <div class="bg-slate-50 w-full">
-    <Navigation :currentPage="currentPage" />
-    <ContentPage1 v-if="currentPage === 0" />
-    <ContentPage2 v-if="currentPage === 1" />
-    <ContentPage3 v-if="currentPage === 2" />
-    <ContentPage4 v-if="currentPage === 3" />
+  <div class="flex justify-center">
+    <div class="bg-slate-50 w-3/4 pt-8 p-8 flex flex-col justify-center align-center">
+      <Navigation :currentPage="currentPage" @update:currentPage="updateCurrentPage" />
+      <ContentPage1 v-if="currentPage === 0" @update:currentPage="updateCurrentPage" />
+      <ContentPage2 v-if="currentPage === 1" @update:currentPage="updateCurrentPage" />
+      <ContentPage3 v-if="currentPage === 2" @update:currentPage="updateCurrentPage" />
+      <ContentPage4 v-if="currentPage === 3" @update:currentPage="updateCurrentPage" />
+    </div>
   </div>
 </template>
 

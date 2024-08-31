@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import { ref } from 'vue'
+import { defineProps, ref } from 'vue'
 import Step from './Step.vue'
 
 defineProps({
@@ -8,15 +7,23 @@ defineProps({
 })
 
 const steps = ref([
-    { title: 'Выбор организации' },
-    { title: 'Выбор специальности' },
-    { title: 'Выбор врача и времени' },
-    { title: 'Оформление записи' },
-  ])
+  { id: 1 , title: 'Выбор организации' },
+  { id: 2 , title: 'Выбор специальности' },
+  { id: 3 , title: 'Выбор врача и времени' },
+  { id: 4 , title: 'Оформление записи' },
+])
+
 </script>
 
 <template>
-  <div class="flex">
-    <Step v-for="(step, index) in steps" :key="index" :active="index === currentPage" :title="step.title" :number="index + 1" />
+  <div class="flex justify-center gap-4">
+    <Step
+      v-for="(step, index) in steps"
+      :key="index"
+      :active="index <= currentPage"
+      :title="step.title"
+      :number="index + 1"
+      :isLast="index === steps.length - 1"
+    />
   </div>
 </template>
