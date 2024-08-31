@@ -1,17 +1,30 @@
-// specialistsStore.js
 import { defineStore } from 'pinia'
 
+// Определение типа для специалиста
+interface Specialist {
+  id: number;
+  name: string;
+  // Добавьте другие поля, которые присутствуют у специалиста
+}
+
+// Определение типа для хранилища
+interface SpecialistsState {
+  specialists: Specialist[];
+  selectedSpecialist: Specialist | null;
+}
+
 export const useSpecialistsStore = defineStore('specialists', {
-  state: () => ({
+  state: (): SpecialistsState => ({
     specialists: [],
     selectedSpecialist: null,
   }),
   actions: {
-    setSpecialists(specialists) {
-      this.specialists = specialists
+    setSpecialists(specialists: Specialist[]) {
+      this.specialists = specialists;
     },
-    setSelectedSpecialist(specialist) {
-      this.selectedSpecialist = specialist
+    setSelectedSpecialist(specialist: Specialist | null) {
+      this.selectedSpecialist = specialist;
     },
   },
-})
+});
+
